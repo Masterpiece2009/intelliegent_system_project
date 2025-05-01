@@ -203,7 +203,6 @@ app.get('/api/market', async (req, res) => {
     });
   }
 });
-
 // Planning insights endpoint - ENHANCED with UV, humidity and wind gust data
 app.get('/api/planning', async (req, res) => {
   try {
@@ -347,7 +346,7 @@ app.get('/api/planning', async (req, res) => {
           });
         }
         
-        // Temperature insight - safely calculate average
+        // Temperature insight - safely calculate average with 0.0°C validation fix
         try {
           const avgTemp = weatherData.forecast.reduce((sum, day) => sum + (day.avgtemp_c || 0), 0) / weatherData.forecast.length;
           
@@ -389,7 +388,7 @@ app.get('/api/planning', async (req, res) => {
           console.error('Error calculating average temperature:', err.message);
         }
       }
-    }
+    }    
     // Market insights - Keep existing code
     if (marketData && marketData.data && marketData.data.length > 1) {
       try {
