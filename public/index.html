@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriPlanner - Weather & Market Integration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AgriPlanner</h1>
+      <p>Integrating Weather, Market & Pricing Data for Better Agricultural Planning</p>
+    </header>
+    
+    <div class="search-section">
+      <div class="location-selector">
+        <div class="input-group">
+          <label for="location-type">Location Type:</label>
+          <select id="location-type">
+            <option value="global-cities">Major Global Cities</option>
+          </select>
+        </div>
+        
+        <!-- Major Global Cities Dropdown -->
+        <div class="input-group" id="global-city-group">
+          <label for="global-cities">City:</label>
+          <select id="global-cities">
+            <option value="New York">New York</option>
+            <option value="London">London</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Paris">Paris</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Sydney">Sydney</option>
+            <option value="Rio de Janeiro">Rio de Janeiro</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Beijing">Beijing</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Moscow">Moscow</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <label for="product">Agricultural Product:</label>
+        <select id="product">
+          <option value="Corn">Corn</option>
+          <option value="Wheat">Wheat</option>
+          <option value="Soybeans">Soybeans</option>
+          <option value="Coffee">Coffee</option>
+          <option value="Cotton">Cotton</option>
+          <option value="Sugar">Sugar</option>
+          <option value="Rice">Rice</option>
+          <option value="Oranges">Oranges</option>
+          <option value="Tomatoes">Tomatoes</option>
+          <option value="Apples">Apples</option>
+        </select>
+      </div>
+      
+      <button id="update-btn">Update Data</button>
+    </div>
+    
+    <div class="dashboard">
+      <div class="card weather-card">
+        <div class="card-header">
+          <h2>Weather Forecast</h2>
+        </div>
+        <div class="card-body" id="weather-container">
+          <div class="loading">Loading weather data...</div>
+        </div>
+      </div>
+      
+      <div class="card market-card">
+        <div class="card-header">
+          <h2>Market Data</h2>
+        </div>
+        <div class="card-body" id="market-container">
+          <div class="loading">Loading market data...</div>
+        </div>
+      </div>
+      
+      <div class="card planning-card">
+        <div class="card-header">
+          <h2>Planning Insights</h2>
+        </div>
+        <div class="card-body" id="planning-container">
+          <div class="loading">Generating insights...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
