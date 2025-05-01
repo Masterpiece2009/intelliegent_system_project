@@ -4,7 +4,7 @@ const axios = require('axios');
 
 // Direct API keys (no need for .env)
 const WEATHER_API_KEY = '47d794ebddbd476fab8123002252904';
-const ALPHAVANTAGE_API_KEY = '5KP9PRG9FUAMS341'; // Removed extra space
+const ALPHAVANTAGE_API_KEY = 'OERPBB9P6QWJ33I7'; // Removed extra space
 
 const app = express();
 // Change to port 3004 as requested
@@ -378,7 +378,7 @@ app.get('/api/planning', async (req, res) => {
               title: 'High Temperature Alert',
               description: `Average temperature of ${avgTemp.toFixed(1)}°C exceeds optimal growing conditions for ${productName}. Consider increased irrigation and monitor for heat stress.`
             });
-          } else if (avgTemp < tempThresholds.low) {
+          } else if (avgTemp < tempThresholds.low && Math.abs(avgTemp) > 0.5) {
             insights.push({
               type: 'weather',
               title: 'Low Temperature Alert',
@@ -390,7 +390,6 @@ app.get('/api/planning', async (req, res) => {
         }
       }
     }
-    
     // Market insights - Keep existing code
     if (marketData && marketData.data && marketData.data.length > 1) {
       try {
